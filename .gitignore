@@ -1,0 +1,18 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Configuração local do Claude Code
+.claude/
+
+# Dependências (caso algum dia sejam usadas)
+node_modules/
+
+# Refer�ncia visual usada no desenvolvimento
+referencia-ui.png

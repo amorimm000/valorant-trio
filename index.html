@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trio // Valorant — Quem joga o quê?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <!-- Símbolo próprio do projeto (três lâminas = trio); não é o logo oficial -->
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <polygon points="4,8 18,8 34,52 27,58" />
+        <polygon points="22,8 34,8 44,36 38,44" />
+        <polygon points="40,8 60,8 48,28" />
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">VALORANT</span>
+        <span class="brand-sub">TRIO <span aria-hidden="true">•</span> COMPETITIVO</span>
+      </div>
+      <p class="brand-tagline">Quem joga o quê?</p>
+    </div>
+    <div class="header-art" id="header-art" aria-hidden="true"></div>
+  </header>
+
+  <main class="app">
+    <section class="status" id="status" role="status" aria-live="polite">
+      <p class="status-message">CARREGANDO PICKS...</p>
+    </section>
+
+    <nav class="map-select" id="map-select" aria-label="Seleção de mapa" hidden></nav>
+
+    <div class="board" id="board" hidden>
+      <section class="map-banner" id="map-banner" hidden></section>
+
+      <section class="players" id="players" aria-label="Picks das jogadoras" hidden></section>
+
+      <aside class="side">
+        <section class="composition panel" id="composition-section" aria-labelledby="composition-title" hidden>
+          <header class="panel-head">
+            <h2 id="composition-title">Composição</h2>
+            <p class="panel-sub">Principais na tela</p>
+          </header>
+          <ul class="composition-list" id="composition"></ul>
+          <p class="composition-legend"><span class="mark-ok">✓</span> presente <span class="mark-bad">!</span> crítica ausente</p>
+        </section>
+
+        <div class="actions" id="actions" hidden>
+          <button type="button" class="btn btn-ghost" id="restore-btn">
+            <span class="btn-icon" aria-hidden="true">↺</span> Restaurar picks
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <section class="draft panel" id="draft-section" aria-labelledby="draft-title" hidden>
+      <header class="panel-head draft-head">
+        <h2 id="draft-title">Assistente de Draft</h2>
+        <p class="panel-sub draft-intro">O que o resto do time já escolheu?</p>
+      </header>
+
+      <div class="draft-layout">
+        <div class="draft-inputs">
+          <label class="draft-field">
+            <span class="label">Jogador 4</span>
+            <select class="draft-select" id="draft-p4"></select>
+          </label>
+          <label class="draft-field">
+            <span class="label">Jogador 5</span>
+            <select class="draft-select" id="draft-p5"></select>
+          </label>
+          <p class="draft-meta-status" id="draft-meta-status" hidden></p>
+          <button type="button" class="btn btn-primary" id="draft-btn">Sugerir composição</button>
+        </div>
+
+        <div class="draft-output" id="draft-output" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer class="legend" aria-label="Legenda de funções">
+      <p class="legend-title">Legenda de funções</p>
+      <ul class="legend-list">
+        <li data-role="Duelista"><span class="role-icon" aria-hidden="true"></span><b>Duelista</b> Entra, cria espaço e finaliza.</li>
+        <li data-role="Iniciador"><span class="role-icon" aria-hidden="true"></span><b>Iniciador</b> Coleta informação e abre espaço.</li>
+        <li data-role="Controlador"><span class="role-icon" aria-hidden="true"></span><b>Controlador</b> Bloqueia visão e controla o mapa.</li>
+        <li data-role="Sentinela"><span class="role-icon" aria-hidden="true"></span><b>Sentinela</b> Trava o mapa e protege a equipe.</li>
+      </ul>
+      <p class="legend-note">Controlador, Iniciador e Sentinela são funções críticas no Assistente de Draft.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

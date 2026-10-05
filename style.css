@@ -1398,6 +1398,412 @@ select {
   }
 }
 
+/* =========================================================
+   Mobile / tablet (só apresentação; desktop >= 1024px intacto)
+   ========================================================= */
+
+/* Cards em largura total: principal em cima, secundária e terciária lado a lado */
+@media (max-width: 900px) {
+  .card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card > .card-head,
+  .card > .pick-main,
+  .card > .swap-note {
+    grid-column: 1 / -1;
+  }
+
+  .card > .pick-reserve {
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .card > .pick-tertiary {
+    padding-block: 10px;
+  }
+
+  .pick-main .agent-img {
+    width: 84px;
+    height: 84px;
+  }
+
+  .pick-main .agent-name {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    width: calc(100% - 24px);
+    padding-top: 12px;
+    gap: 14px;
+  }
+
+  /* Faixa de mapas: rolagem horizontal por toque */
+  .map-select {
+    gap: 8px;
+    margin-inline: -12px;
+    padding: 0 12px 4px;
+    scroll-padding-inline: 12px;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .map-select::-webkit-scrollbar {
+    display: none;
+  }
+
+  .map-btn {
+    flex: 0 0 auto;
+    min-width: 116px;
+    min-height: 50px;
+    scroll-snap-align: start;
+  }
+
+  .map-btn.active {
+    box-shadow: inset 0 0 0 1px var(--valorant-red);
+  }
+
+  .map-btn.active::after {
+    height: 4px;
+  }
+
+  .map-banner {
+    min-height: 72px;
+  }
+
+  /* Textos com tamanho mínimo legível (~12px) */
+  .label,
+  .pick .label {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+  }
+
+  .role-badge {
+    font-size: 0.8rem;
+    padding: 1px 8px 0;
+  }
+
+  .swap-note,
+  .composition-legend,
+  .legend-note,
+  .draft-note,
+  .draft-meta-status {
+    font-size: 0.8rem;
+  }
+
+  /* Card da jogadora */
+  .card-head {
+    padding: 8px 10px 8px 12px;
+  }
+
+  .player-name {
+    font-size: 1.55rem;
+  }
+
+  .swap-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 16px;
+    font-size: 0.95rem;
+  }
+
+  .pick {
+    column-gap: 10px;
+  }
+
+  .agent-img.small,
+  .agent-img.tiny {
+    width: 52px;
+    height: 52px;
+    font-size: 0.95rem;
+  }
+
+  .pick-reserve .agent-name {
+    font-size: 1.2rem;
+  }
+
+  .pick-tertiary .agent-name {
+    font-size: 1.1rem;
+  }
+
+  .swap-note {
+    padding: 8px 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Composição: 2 x 2 sem quebrar o nome da função */
+  .composition-list li {
+    min-height: 48px;
+    gap: 8px;
+    padding: 8px 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .composition-list li:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+
+  .composition-list li:nth-child(even) {
+    border-right: 0;
+  }
+
+  .composition-list .role-label {
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .composition-list .mark {
+    min-width: 24px;
+    line-height: 24px;
+  }
+
+  .composition-legend {
+    padding: 10px 14px 12px;
+  }
+
+  .actions .btn {
+    min-height: 48px;
+  }
+
+  /* Assistente de Draft */
+  .draft-inputs {
+    padding: 14px 12px;
+    gap: 12px;
+  }
+
+  .draft-select {
+    height: 50px;
+    font-size: 16px; /* >= 16px evita o zoom automático do iOS ao focar */
+  }
+
+  #draft-btn {
+    min-height: 52px;
+  }
+
+  .draft-output {
+    padding: 12px;
+  }
+
+  .draft-output:empty::before {
+    min-height: 0;
+    padding: 18px 14px;
+  }
+
+  .draft-result {
+    gap: 14px;
+  }
+
+  .draft-picks li {
+    align-items: center;
+    padding: 10px 12px;
+  }
+
+  .draft-picks .img-box {
+    width: 64px;
+    height: 64px;
+  }
+
+  .draft-player {
+    font-size: 1rem;
+  }
+
+  .draft-agent {
+    font-size: 1.65rem;
+  }
+
+  .draft-meta {
+    font-size: 0.8rem;
+  }
+
+  .draft-meta-stats {
+    font-size: 0.8rem;
+  }
+
+  .draft-heading {
+    font-size: 0.9rem;
+  }
+
+  /* Score: valor ao lado das partes */
+  .draft-score-panel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 10px 18px;
+  }
+
+  .draft-breakdown {
+    padding: 0 0 0 16px;
+    border-top: 0;
+    border-left: 1px solid var(--border);
+  }
+
+  .draft-breakdown li {
+    font-size: 0.95rem;
+  }
+
+  .draft-note {
+    grid-column: 1 / -1;
+  }
+
+  .draft-comp li {
+    padding: 4px 12px 4px 4px;
+    font-size: 1.05rem;
+  }
+
+  .draft-comp .img-box {
+    width: 32px;
+    height: 32px;
+    font-size: 0.7rem;
+  }
+
+  .draft-roles li {
+    min-height: 44px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .draft-explanation {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .draft-alts li {
+    font-size: 0.9rem;
+  }
+
+  .draft-alt-pick {
+    font-size: 1.05rem;
+  }
+
+  .draft-alt-info {
+    font-size: 0.8rem;
+  }
+
+  .legend-list li {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    width: calc(100% - 20px);
+  }
+
+  .map-select {
+    margin-inline: -10px;
+    padding-inline: 10px;
+    scroll-padding-inline: 10px;
+  }
+
+  .map-btn {
+    min-width: 108px;
+    font-size: 1rem;
+  }
+
+  .brand-sub {
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+  }
+
+  .map-banner-text {
+    margin-left: 12px;
+    padding: 8px 14px;
+  }
+
+  .map-name {
+    font-size: 1.65rem;
+  }
+
+  .pick {
+    padding-inline: 10px;
+  }
+
+  .pick-main .agent-img {
+    width: 76px;
+    height: 76px;
+  }
+
+  .pick-main .agent-name {
+    font-size: 1.7rem;
+  }
+
+  .agent-img.small,
+  .agent-img.tiny {
+    width: 46px;
+    height: 46px;
+  }
+
+  .composition-list li {
+    gap: 6px;
+    padding: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+  }
+
+  .composition-list .letter {
+    width: 1em;
+  }
+
+  .panel-head {
+    padding: 12px;
+  }
+
+  .draft-score-value {
+    font-size: 2.6rem;
+  }
+
+  .draft-alts li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .draft-alt-score {
+    text-align: left;
+  }
+}
+
+/* Telas bem estreitas (~360px) */
+@media (max-width: 380px) {
+  .player-name {
+    font-size: 1.4rem;
+  }
+
+  .swap-btn {
+    padding: 0 12px;
+  }
+
+  .agent-img.small,
+  .agent-img.tiny {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pick-reserve .agent-name,
+  .pick-tertiary .agent-name {
+    font-size: 1.05rem;
+  }
+
+  .composition-list li {
+    padding: 8px 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .composition-list .role-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .draft-roles li {
+    padding: 6px 8px;
+    gap: 4px;
+    letter-spacing: 0.03em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
